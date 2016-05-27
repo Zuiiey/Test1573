@@ -6,69 +6,81 @@ var todoData = {
   items: [
     {
       label: "Skrubba golv",
-      completed: true
+      completed: true,
+      time: "12 m",
+      points: "34"
     },
     {
       label: "Töm sopor",
-      completed: true
+      completed: true,
+      time: "12 m",
+      points: "21"
     },
     {
       label: "Rengör kaffemaskinen",
-      completed: true
+      completed: true,
+      time: "12 m",
+      points: "21"
+    },
+    {
+      label: "Fronta varor",
+      completed: true,
+      time: "10 m",
+      points: "12"
     }
   ]
 };
 
 //console.log(todoData.items[1].label);
 
+console.log();
 
 function addElements () {
 
-   /*for (var items in todoData) {
-     var i = 0;
-      var newDiv = document.createElement("div");
-      var newContent = document.createTextNode("label");
-      newDiv.appendChild(newContent);
-      console.log(items + i);
-      i++;
-  } */
-
   for (i = 0; i < todoData.items.length; i++) {
 
-    // Skapa <p>
-    var newP = document.createElement("p");
+    // Skapa nya element
+    var newPTitle = document.createElement("p");
     var checkbox = document.createElement("input");
+    var newPTime = document.createElement("p");
+    var newPPoints = document.createElement("p");
 
     // Task-namnet
     var newTask = document.createTextNode(todoData.items[i].label);
-    newP.appendChild(newTask);
+    newPTitle.appendChild(newTask);
+    newPTitle.id = "title" + i;
 
     // Checkboxen
     checkbox.type = "checkbox";
     checkbox.name = "checkboxName" + i;
+    checkbox.value = true;
     checkbox.id = "checkbox" + i;
+//    checkbox.onclick = ;
 
+    // Tiden
+    var newTime = document.createTextNode(todoData.items[i].time);
+    newPTime.appendChild(newTime);
+    newPTime.id = "time" + i;
 
-    // Lägg in <p> i diven container
+    // Poängen
+    var newPoints = document.createTextNode(todoData.items[i].points);
+    newPPoints.appendChild(newPoints);
+    newPPoints.id = "points" + i;
+
+    // Lägg in i container
     document.getElementById("container").appendChild(checkbox);
-    document.getElementById("container").appendChild(newP);
-
-  //  var currentP = document.getElementById("p");
-  //  document.body.insertBefore(newP, currentP);
-  //  var divCon = document.getElementById("container");
-  //  divCon.appendChild();
-
+    document.getElementById("container").appendChild(newPTitle);
+    document.getElementById("container").appendChild(newPTime);
+    document.getElementById("container").appendChild(newPPoints);
 
   }
 
-/*
-    var newDiv = document.createElement("div");
-    var newContent = document.createTextNode("Hi there and greetings!");
-    newDiv.appendChild(newContent); //add the text node to the newly created div.
+}
 
-    // add the newly created element and its content into the DOM
-    var currentDiv = document.getElementById("div1");
-    document.body.insertBefore(newDiv, currentDiv);
-    */
+
+function buttonClick() {
+  //disabla knappen
+
+  // få hela grejen att försvinna
 
 }
