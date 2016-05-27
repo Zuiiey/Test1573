@@ -1,4 +1,4 @@
-document.body.onload = addElement;
+document.body.onload = addElements;
 
 
 var todoData = {
@@ -20,9 +20,9 @@ var todoData = {
 };
 
 //console.log(todoData.items[1].label);
-console.log(todoData.items.length);
 
-function addElement () {
+
+function addElements () {
 
    /*for (var items in todoData) {
      var i = 0;
@@ -34,12 +34,31 @@ function addElement () {
   } */
 
   for (i = 0; i < todoData.items.length; i++) {
-    var newDiv = document.createElement("div");
-    var newContent = document.createTextNode(todoData.items[i].label);
-    newDiv.appendChild(newContent);
 
-    var currentDiv = document.getElementById("div" + i);
-    document.body.insertBefore(newDiv, currentDiv);
+    // Skapa <p>
+    var newP = document.createElement("p");
+    var checkbox = document.createElement("input");
+
+    // Task-namnet
+    var newTask = document.createTextNode(todoData.items[i].label);
+    newP.appendChild(newTask);
+
+    // Checkboxen
+    checkbox.type = "checkbox";
+    checkbox.name = "checkboxName" + i;
+    checkbox.id = "checkbox" + i;
+
+
+    // Lägg in <p> i diven container
+    document.getElementById("container").appendChild(checkbox);
+    document.getElementById("container").appendChild(newP);
+
+  //  var currentP = document.getElementById("p");
+  //  document.body.insertBefore(newP, currentP);
+  //  var divCon = document.getElementById("container");
+  //  divCon.appendChild();
+
+
   }
 
 /*
