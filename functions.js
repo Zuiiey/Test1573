@@ -38,7 +38,7 @@ function addElement () {
     var newContent = document.createTextNode(todoData.items[i].label);
     newDiv.appendChild(newContent);
 
-    var currentDiv = document.getElementById("div1");
+    var currentDiv = document.getElementById("div" + i);
     document.body.insertBefore(newDiv, currentDiv);
   }
 
